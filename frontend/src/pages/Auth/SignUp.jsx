@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { useContext, useState } from "react";
 import AuthLayout from "../../components/layouts/AuthLayout";
 import Input from "../../components/Input/Input";
@@ -75,13 +74,16 @@ const SignUp = () => {
 
   return (
     <AuthLayout>
-      <div className="w-full lg:w-[70%]">
-        <h3 className="text-xl font-semibold text-black">Create an Account</h3>
-        <p className="text-xs text-slate-700 mt-1 mb-6">
+      <div className="w-full max-w-xl mx-auto px-4 sm:px-6 lg:px-0">
+        <h3 className="text-2xl sm:text-3xl font-semibold text-black">
+          Create an Account
+        </h3>
+
+        <p className="text-sm sm:text-base text-slate-700 mt-2 mb-6">
           Join us today by entering your details below.
         </p>
 
-        <form onSubmit={handleSignup}>
+        <form onSubmit={handleSignup} className="space-y-5">
           <ProfilePhotoSelector image={profilePic} setImage={setProfilePic} />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -101,7 +103,7 @@ const SignUp = () => {
               type="text"
             />
 
-            <div className="col-span-2">
+            <div className="md:col-span-2">
               <Input
                 value={password}
                 onChange={({ target }) => setPassword(target.value)}
@@ -110,13 +112,13 @@ const SignUp = () => {
                 type="password"
               />
 
-              {error && <p className="text-red-500 text-sm pb-2.5">{error}</p>}
+              {error && <p className="text-red-500 text-sm pt-1">{error}</p>}
 
-              <button type="submit" className="btn-primary">
+              <button type="submit" className="btn-primary w-full mt-4">
                 SIGNUP
               </button>
 
-              <p className="text-[13px] text-slate-800 mt-3">
+              <p className="text-sm text-slate-800 mt-4 text-center sm:text-left">
                 Already have an account?{" "}
                 <Link
                   className="font-medium text-primary underline"
